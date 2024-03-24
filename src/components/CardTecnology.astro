@@ -13,7 +13,7 @@ const {title, items} = Astro.props;
         <p class="font-semibold text-white md:text-lg">{title}</p> 
     </div> 
     <div class="pt-1 flex flex-row flex-wrap gap-2"> 
-        {items.map((item, index) => (
+        {items.map((item) => (
             <div class=`badge ${item.color} text-sm md:text-base py-1 px-3 rounded-full`>#{ item.title }</div>
         ))}             
     </div>

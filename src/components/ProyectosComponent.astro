@@ -64,7 +64,7 @@ const { items} = Astro.props;
   var anterior = "Explicación";
   var id = 0;
   for (let index = 0; index < btns.length; index++) {
-    btns[index].addEventListener('click', (event) => {
+    btns[index].addEventListener('click', (event: any) => {
       if(anterior != ""){
         let contenido = document.getElementById(anterior);
 
@@ -76,7 +76,7 @@ const { items} = Astro.props;
       event.preventDefault();
       btns[index].classList.add("text-white");
       btns[index].classList.add("underline");
-      let texto = event.srcElement.innerHTML;
+      let texto = event.srcElement!.innerHTML;
       let contenido = document.getElementById(texto);
       anterior = texto;
       id = index;
@@ -94,29 +94,49 @@ const { items} = Astro.props;
   accordionItems.forEach(item => {
       item.addEventListener('click', function () {
        
-          const target = this.getAttribute('data-accordion-target');
+          const target = item.getAttribute('data-accordion-target');
           console.log(target);
-          const element = document.querySelector(target);
-
-          element.classList.toggle('hidden');
+          if (target) {
+            const element = document.querySelector(target);
+            if (element) {
+                element.classList.toggle('hidden');
+            } else {
+                console.error(`No se encontró ningún elemento que coincida con el selector ${target}`);
+            }
+          } else {
+              console.error('El atributo data-accordion-target está vacío o no está presente en el elemento.');
+          }
       });
   });
 
   /* LAZY LOAD VIDEOS */
-  var lazyVideo = document.getElementById('lazyVideo');
+  var lazyVideo = document.getElementById('lazyVideo')  as HTMLVideoElement;
   if ('IntersectionObserver' in window) {
       var observer = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             var source = entry.target.querySelector('source');
-            source.src = source.dataset.src;
-            observer.unobserve(entry.target);
+            if (source instanceof HTMLElement) {
+                    const src = source.dataset.src;
+                    if (src) {
+                        // Convertimos entry.target a HTMLVideoElement
+                        const video = entry.target as HTMLVideoElement;
+                        video.src = src;
+                        observer.unobserve(entry.target);
+                    }
+                }
+            
           }
         });
       }, { rootMargin: '0px 0px 50px 0px' }); // Adjust rootMargin as needed
       observer.observe(lazyVideo);
   }else {
       // Fallback for browsers that don't support Intersection Observer
-      lazyVideo.src = lazyVideo.querySelector('source').dataset.src;
+      if (lazyVideo) {
+        const source = lazyVideo.querySelector('source');
+      if (source && source.dataset.src) {
+          lazyVideo.src = source.dataset.src;
+      }
+}
   }
 </script>
