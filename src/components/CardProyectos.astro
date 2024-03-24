@@ -1,0 +1,134 @@
+---
+interface Props {
+    title: string,
+    body: string,
+    tecnologies: Array<{title: string, color: string}>,
+    thumbnail?: string, 
+    urlProyecto?: string, 
+    githubUrl?: string,
+    
+}
+
+const {title,body,tecnologies, thumbnail, urlProyecto, githubUrl} = Astro.props;
+---
+
+
+
+<div class="card_shine_effect group max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="fondo_opaco hidden cursor-pointer">
+    </div>
+    <!-- <div class="md:hidden">
+        <img class="rounded-t-lg imagen cursor-pointer" src={thumbnail} alt="" />
+    </div> -->
+    <div class="md:visible">
+        <img class="rounded-t-lg imagen cursor-pointer" src={thumbnail} alt="" />
+    </div>
+
+    <div class="p-5">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+        </a>
+        <p class="font-normal text-gray-700 dark:text-gray-400">{body}</p>
+        <h5 class="font-md text-white font-semibold my-3">Tecnologías</h5>
+        <div class="my-3 flex flex-row flex-wrap gap-2"> 
+            {tecnologies.map((item) => (
+                <div class=`badge ${item.color} text-black font-semibold text-sm  py-1 px-3 rounded-full`>#{ item.title }</div>
+            ))}             
+        </div>
+        
+        <div class="mt-6 flex gap-3">
+            <a href={urlProyecto} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Ver más
+             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+            </a>
+
+            <a href={githubUrl} target="_blank">
+                <svg class=" w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card_shine_effect {
+  --shine-deg: 45deg;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 28rem;
+
+  background-repeat: no-repeat;
+  background-position: -100% 0, 0 0;
+
+  background-image: linear-gradient(
+    var(--shine-deg),
+    transparent 20%,
+    transparent 40%,
+    rgb(68, 68, 68, 0.2) 50%,
+    rgb(68, 68, 68, 0.2) 55%,
+    transparent 70%,
+    transparent 100%
+  );
+
+  background-size: 250% 250%, 100% 100%;
+  transition: background-position 0s ease;
+}
+
+.card_shine_effect:hover {
+  background-position: 200%0, 0 0;
+  transition-duration: 1.5s;
+}
+
+.fondo_opaco {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* ajusta el último valor para cambiar la opacidad */
+}
+
+.ampliada {
+    width: 50%;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 20);
+}
+</style>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var imagenes = document.getElementsByClassName("imagen");
+    const fondo_opaco = document.querySelector(".fondo_opaco");
+    
+    function cerrarImagen() {
+        if(imagenes && fondo_opaco) {
+            for (let index = 0; index < imagenes.length; index++) {
+                imagenes[index].classList.toggle("ampliada");
+                imagenes[index].classList.toggle("rounded-lg");
+            }
+            fondo_opaco.classList.toggle("hidden");
+        }
+    }
+
+    for (let index = 0; index < imagenes.length; index++) {
+        imagenes[index].addEventListener("click", function() {
+            cerrarImagen();
+        });
+    }
+
+    fondo_opaco!.addEventListener("click", function() {
+        cerrarImagen();
+    });
+});
+
+</script>

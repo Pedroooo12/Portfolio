@@ -1,0 +1,9 @@
+---
+interface Props{
+    title: string,
+    href: string
+}
+
+const {title, href} = Astro.props;
+---
+<a href={href} class="block text-right py-2 px-3  border-b-2 duration-300 delay-100 border-transparent hover:border-white   lg:bg-transparent lg:p-0 " aria-current="page">{title}</a>

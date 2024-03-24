@@ -1,0 +1,123 @@
+---
+import Proyectos from '../layouts/Proyectos.astro';
+import ProyectosComponent from '../components/ProyectosComponent.astro';
+
+---
+<Proyectos>
+	<ProyectosComponent 
+		items={[
+			{
+				title: "Explicación", 
+				href: "#explicacion", 
+				mainImage: "../../public/img/proyectoTodo.png", 
+				mainTitle: "TodoApp", 
+				mainBody: "Está inspirada en la versatilidad de Trello, ofrece una gama de funcionalidades clave para mejorar la gestión de proyectos. Incluye un sistema de inicio de sesión seguro, una interfaz intuitiva de arrastrar y soltar, capacidades CRUD para categorías y tareas, estadísticas detalladas para el seguimiento del progreso del proyecto, así como un calendario integrado para la planificación eficiente. Está combinación de características proporciona a los usuarios una experiencia completa y flexible para organizar, priorizar y realizar un seguimiento efectivo de sus proyectos y tareas."},
+			{
+				title: "Sistema de login", 
+				href: "#login",
+				secondaryTitle: "Sistema de login",
+				descripcionNormal: `
+					<h4 class='text-lg font-semibold my-3'>Registrarse: </h4>
+                    <p class='text-md'>
+                        En esta sección podrás registrarte en el sistema, para poder acceder a las funcionalidades del mismo debes rellenar todos los campos ya que si no nos saldrá un error de que falta x campo. 
+                    </p>
+                    <p class='text-md'>
+                        Una vez que tienes todos los campos y le das a registrarte puedes encontrarte dos opciones:
+                    </p>
+                    <ol class='list-decimal list-inside'>
+                        <li class="ml-5">Tienes todos los campos correctos y te saldrá una alerta de usuario registrado</li>
+                        <li class="ml-5">El correo electronico coincide con alguno ya existente por lo que te saldrá una alerta de error.</li>
+                    </ol>
+
+					<h4 class='text-lg font-semibold my-3'>Iniciar sesión: </h4>
+                    <p class='text-md'>
+                        En esta sección podrás iniciar sesión en el sistema, para poder acceder debes introducir un correo electrónico y una contraseña correctas.
+                    </p>
+                    <p class='text-md'>
+                        Una vez que tienes todos los campos y le das a iniciar sesión puedes encontrarte tres opciones:
+                    </p>
+                    <ol class='list-decimal list-inside mb-3'>
+                        <li class="ml-5">Te has equivocado de contraseña y te saldrá una alerta sobre ello.</li>
+                        <li class="ml-5">El correo electrónico no está registrado por lo que no puedes iniciar sesión.</li>
+						<li class="ml-5">Las credenciales son correctas y entras a la aplicación.</li>
+                    </ol>`,
+					videoExplicativo: "../../../public/videos/login.mp4"
+			},
+			{
+				title: "CRUD categorias", 
+				href: "#categorias",
+				secondaryTitle: "CRUD categorías",
+				descripcionNormal: `
+					<h4 class='text-lg font-semibold my-3'>CRUD categorías: </h4>
+                    <p class='text-md '>
+                        En esta sección podrás realizar las funciones básicas de un <span class="font-bold">CRUD (Create, Read, Update, Delete)</span> además, incluye un sistema de alertas para saber que la operación ha sido realizada con éxito.
+                    </p>
+                    <p class='text-md my-3'>
+                        Cada categoría está relacionada con un usuario en concreto.
+                    </p>`,
+					videoExplicativo: "../../../public/videos/categorias.mp4"
+			},
+			{
+				title: "CRUD tareas", 
+				href: "#tareas",
+				secondaryTitle: "CRUD tareas",
+				descripcionNormal: `
+					<h4 class='text-lg font-semibold my-3'>CRUD tareas: </h4>
+                    <p class='text-md '>
+                        En esta sección podrás realizar las funciones básicas de un <span class="font-bold">CRUD (Create, Read, Update, Delete)</span> además, incluye un sistema de alertas para saber que la operación ha sido realizada con éxito.
+                    </p>
+
+					<p class='text-md'>
+                        Tienes dos formas distintas para poder crear una tarea:
+                    </p>
+					<ol class='list-decimal list-inside'>
+                        <li class="ml-5">Darle al botón de más y crear una tarea, la cual se irá a la columna de hacer.</li>
+                        <li class="ml-5">Entrar en el listado de tareas y elegir en que columna quieres la tarea: hacer, haciendo o hecha.</li>
+                    </ol>
+
+                    <p class='text-md my-3'>
+                        Cada tarea está relacionada con una categoría que a su vez se relaciona con el usuario.
+                    </p>`,
+					videoExplicativo: "../../../public/videos/tareas.mp4"
+			},
+			{
+				title: "Funcionalidades", 
+				href: "#funcionalidades",
+				secondaryTitle: "Funcionalidades",
+				descripcionNormal: `
+					<h4 class='text-lg font-semibold my-3'>Funcionalidades: </h4>
+                    <p class='text-md '>
+                        En esta sección podrás encontrar funcionalidades distintas como:
+                    </p>
+					<ol class='list-decimal list-inside'>
+                        <li class="ml-5">Flecha arriba y abajo para mostrar dependiendo de el nivel de importancia mayor o menor.</li>
+                        <li class="ml-5">Filtrar las tareas por categoría, importancia o ambas.</li>
+						<li class="ml-5">Buscador donde escribes algo y te muestra las tareas que coinciden con lo que has escrito.</li>
+						<li class="ml-5">Arrastrar y soltar de una columna a otra, se guardan los cambios directamente y se mantienen aunque refresques el navegador.</li>
+						<li class="ml-5">Una vez que las tareas lleguen a "Hechas" podrás finalizar una tarea o darle al icono verde y finalizar todas de golpe.</li>
+                    </ol>
+`,
+					videoExplicativo: "../../../public/videos/funcionalidades.mp4"
+			},
+			{
+				title: "Calendario y estadísticas", 
+				href: "#Calendario y estadisticas",
+				secondaryTitle: "Calendario y estadísticas",
+				descripcionNormal: `
+					<h4 class='text-lg font-semibold my-3'>CRUD tareas: </h4>
+                    <p class='text-md '>
+                        En estas dos secciones se encuentran:
+                    </p>
+					<ol class='list-decimal list-inside'>
+                        <li class="ml-5">El calendario el cual está integrado con Fullcalendar y donde se encuentran las tareas.</li>
+                        <li class="ml-5">Entrar en el listado de tareas y elegir en que columna quieres la tarea: hacer, haciendo o hecha.</li>
+                    </ol>
+
+                    <p class='text-md my-3'>
+                        Cada tarea está relacionada con una categoría que a su vez se relaciona con el usuario.
+                    </p>`,
+					videoExplicativo: "../../../public/videos/calendario.mp4"
+			},
+			]}>
+	</ProyectosComponent>
+</Proyectos>

@@ -1,0 +1,37 @@
+ <!-- SOBRE MI SECCION -->
+ <section id="sobreMi" class="contenedor mx-auto py-5 md:py-14 lg:py-32"> 
+    <div class="grid sm:grid-cols-2 gap-10">
+        <div class="relative"> 
+            <div class="absolute hidden md:block w-80 h-80 bg-azul rounded-full right-0 bottom-0 -z-10"></div> 
+            <div class="absolute hidden md:block w-44 h-44 bg-violeta rounded-full left-0 top-0 -z-10"></div> 
+                <img src="../../public/img/img.png" alt="Nuevo" class="rounded-xl w-full max-w-md drop-shadow-2xl img_animacion" loading="lazy" width="1270" height="1652"> 
+            
+        </div> 
+        <div class="place-self-center"> 
+            <h2 class="text-5xl text-white tracking-tight -mt-2"> 
+                ¿Cómo he llegado hasta aquí?
+            </h2> 
+        <p class="text-lg max-w-xl mt-4 font-semibold text-gray-300">
+            Desde el primer momento, sabía que quería sumergirme en el mundo de la programación, pero no tenía claro el camino hasta que encontré esta rama. Me lancé de lleno, adentrándome de forma autodidacta lo cual que me permitió absorber los fundamentos esenciales.
+        </p>
+        </div> 
+    </div>  
+</section>
+
+<style>
+    @keyframes subir-bajar {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .img_animacion{
+        position: relative;
+        animation: subir-bajar 2s infinite ease;
+    }
+
+
+</style>

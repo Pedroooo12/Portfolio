@@ -1,0 +1,32 @@
+---
+import CardTecnology from '../CardTecnology.astro'
+---
+<!-- TENCNOLOGIAS -->
+<section id="tecnologias" class="contenedor mx-auto py-5 md:py-14 lg:py-32">
+    <div>
+        <h2 class="text-2xl font-bold md:text-3xl mb-3 text-white ">Tecnologías.</h2>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 justify-center items-stretch my-8">
+
+            <CardTecnology 
+                title='Fronted' 
+                items={[
+                    {title: "HTML", color: "bg-orange-400"}, 
+                    {title: "Css", color: "bg-azul"}, 
+                    {title: "JavaScript", color: "bg-yellow-400"},
+                    {title: "Tailwind", color: "bg-verde"},
+                    {title: "BootStrap", color: "bg-blue-400"},
+                    {title: "Astro", color: "bg-violeta"},
+                    {title: "Angular", color: "bg-red-600"},
+                    
+                    
+            ]}></CardTecnology>
+            <CardTecnology 
+                title='Backend' 
+                items={[
+                    {title: "Springboot", color: "bg-green-400"}, 
+                    {title: "MySQL", color: "bg-teal-400"}, 
+                    {title: "Git", color: "bg-indigo-400"}
+            ]}></CardTecnology>
+        </div>
+    </div>
+</section>

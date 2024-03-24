@@ -1,0 +1,44 @@
+---
+interface Props {
+	title: string;
+	body: string,
+	icon: any
+}
+
+const { title, body,icon } = Astro.props;
+---
+
+<article class="card flex border group border-white text-black  bg-opacity-75 w-fit h-fit  p-4 md:p-10 flex-col gap-4 md:gap-2 lg:gap-4 duration-300 delay-100 hover:scale-95">
+	<div class="border-2 p-1 border-transparent duration-300 delay-150 group-hover:border-gray-800 w-fit rounded-full">
+		<Fragment set:html={icon} />
+	</div>
+    <p class="title flex items-center font-semibold text-xl md:text-2xl ">
+        <span>{title}</span>
+    </p>
+    <div class="body text-sm md:text-base ">{body}</div>
+</article>
+
+
+<script>
+    // Seleccionar todas las tarjetas con la clase .card
+    document.querySelectorAll('.card').forEach((card, index) => {
+        // Agregar clases basadas en el índice de la tarjeta
+        switch (index) {
+            case 0:
+                card.classList.add( 'bg-verde');
+                break;
+            case 1:
+                card.classList.add( 'bg-azul');
+                break;
+            case 2:
+                card.classList.add( 'bg-violeta');
+                break;
+            case 3:
+                card.classList.add( 'bg-claro');
+                break;
+            default:
+                break;
+        }
+    });
+
+</script>
