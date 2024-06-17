@@ -1,0 +1,38 @@
+---
+import Proyectos from '../layouts/Proyectos.astro';
+import ProyectosComponent from '../components/ProyectosComponent.astro';
+
+---
+<Proyectos>
+	<ProyectosComponent 
+		items={[
+			{
+				title: "Explicación", 
+				href: "#explicacion", 
+				mainImage: "../../public/img/proyectoJson.png", 
+				mainTitle: "JsonApp", 
+				mainBody: "La aplicación permite a los usuarios cargar archivos JSON ya sea mediante la subida directa de archivos o escribiendo el contenido directamente en la interfaz. Con un sistema intuitivo y fácil de usar, los usuarios pueden convertir sus datos JSON en interfaces TypeScript listas para usar con un solo clic. Además, la aplicación ofrece la funcionalidad de copiar las interfaces generadas al portapapeles y la opción de descargarlas para integrarlas directamente en sus proyectos. Esta combinación de características proporciona a los desarrolladores una herramienta poderosa para agilizar su flujo de trabajo y mejorar la gestión de sus proyectos de TypeScript."},
+			{
+				title: "Visita por la web", 
+				href: "#login",
+				secondaryTitle: "Dando una vuelta por la web",
+				descripcionNormal: `
+					<h4 class='text-lg font-semibold my-3'>Funcionalidad principal: </h4>
+                    <p class='text-md'>
+                        Convertidor de archivos JSON a interfaces de TypeScript de forma automática, tienes dos opciones escribir el JSON o subir el propio archivo.
+                    </p>
+                    <p class='text-md block mt-4'>
+                        Algunas funcionalidades secundarias son:
+                    </p>
+                    <ol class='list-decimal list-inside'>
+                        <li class="ml-5">Eliminar el contenido que has puesto subido o escrito.</li>
+                        <li class="ml-5">Formatear el contenido que has escrito para que se vea con la vista de un JSON.</li>
+                        <li class="ml-5">Cambiar el nombre a la interfaz principal para que se llame como tu prefieras.</li>
+                        <li class="ml-5">Copiar la interfaz generada para poder pegarla en tu proyecto.</li>
+                        <li class="ml-5">Descargar la interfaz generada para añadirla a tu proyecto.</li>
+                    </ol>`,
+					videoExplicativo: "../../../public/videos/json.mp4"
+			},
+			]}>
+	</ProyectosComponent>
+</Proyectos>

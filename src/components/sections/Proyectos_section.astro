@@ -5,15 +5,28 @@ import CardProyectos from '../CardProyectos.astro';
 <section id="proyectos" class="contenedor mx-auto">
     <div class="my-10 md:my-32 lg:my-48">
         <h2 class="text-2xl font-bold md:text-3xl mb-3 text-white ">Portafolio.</h2>
-        <div class="my-8 flex flex-col md:flex-row gap-10">
-            <CardProyectos 
-            title='TodoApp' 
-            body='Aplicacion para organizar tus tareas de manera sencilla con un sistema de soltar, arrastrar y 5 funcionalidades más.'
-            tecnologies={[{title: "Angular", color: "bg-red-400"},{title:  "Springboot", color: "bg-green-400"},{title: "MySQL", color: "bg-teal-400"}]} 
-            thumbnail='../../public/img/proyectoTodo.png' 
-            urlProyecto='/todo'
-            githubUrl='https://github.com/Pedroooo12/ToDoApp'
-            ></CardProyectos>
+        <div class="flex flex-col md:flex-row md:gap-12">
+            <div class="my-6 md:my-8 flex flex-col md:flex-row gap-10">
+                <CardProyectos 
+                title='TodoApp' 
+                body='Aplicacion para organizar tus tareas de manera sencilla con un sistema de soltar, arrastrar y 5 funcionalidades más.'
+                tecnologies={[{title: "Angular", color: "bg-red-400"},{title:  "Springboot", color: "bg-green-400"},{title: "MySQL", color: "bg-teal-400"}]} 
+                thumbnail='../../public/img/proyectoTodo.png' 
+                urlProyecto='/todo'
+                githubUrl='https://github.com/Pedroooo12/ToDoApp'
+                ></CardProyectos>
+            </div>
+            <div class="my-6 md:my-8 flex flex-col md:flex-row gap-10">
+                <CardProyectos 
+                title='JsonApp' 
+                body='Aplicacion para convertir archivos JSON en interfaces de TypeScript de forma automática pasando archivos o escribiendo el JSON.'
+                tecnologies={[{title: "Angular", color: "bg-red-400"},{title:  "Tailwind", color: "bg-purple-400"}]} 
+                thumbnail='../../public/img/proyectoJson.png' 
+                urlProyecto='/json'
+                githubUrl='https://github.com/Pedroooo12/AppJSON'
+                urlWebsite='https://appjson.netlify.app'
+                ></CardProyectos>
+            </div>
         </div>
     </div>
 </section>

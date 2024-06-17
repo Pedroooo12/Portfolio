@@ -22,7 +22,7 @@ const { items} = Astro.props;
 
   <!-- CONTENIDO -->
   {items.map((item, index) => (
-    <div id={item.title} class=`w-full lg:w-3/4 lg:mx-auto xl:mx-0 mt-20 p-4 md:p-10 bg-violeta bg-opacity-50 text-white rounded-sm shadow-2xl ${index === 0 ? '' : 'hidden'}`>
+    <div id={item.title} class=`w-full  lg:mx-auto xl:mx-0 mt-20 p-4 md:p-10 bg-violeta bg-opacity-50 text-white rounded-sm shadow-2xl ${index === 0 ? '' : 'hidden'}`>
       {item.mainImage ?  
         <img class="rounden-sm" src={item.mainImage}/> : 
         <video id="lazyVideo" class="w-full" controls>
